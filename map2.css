@@ -1,0 +1,583 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+:root{
+
+     /* Colors */
+--white-color: #fff;
+--dark-color: #252525;
+--primary-color: #f4a6c0; /* Soft pastel pink */
+--secondary-color: #f8b3c2;
+--secondary-color2: #de113d; /* Light pastel peach */
+--light-pink-color: #f9e1e6; /* Very soft pink */
+--medium-gray-color: #d3d3d3; /* Lighter gray for contrast */
+   
+    /* Colors 
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #faf4f5;
+    --medium-gray-color: #ccc; */
+
+    /* Font size */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* Font weight */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Border radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    /* Site max width */
+    --site-max-width: 1300px;
+}
+
+/* Stylings for whole site*/
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img{
+    width: 100%;
+}
+.section-content{
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: var(--site-max-width);
+}
+
+.section-title{
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title::after{
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+
+
+/* navbar stylings */
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background: var(--primary-color);
+}
+
+header .navbar {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .nav-logo .logo-text {
+    color: var(--white-color);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.navbar .nav-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar .nav-menu .nav-link {
+    padding: 10px 18px;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    border-radius: var(--border-radius-m);
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--secondary-color2);
+}
+
+.navbar :where(#menu-close-button, #menu-open-button) {
+    display: none;
+}
+
+/* HERO SECTION STYLING */
+
+.hero-section {
+    height: 100vh;
+    background-image: url('cloud.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    text-align: center;
+}
+
+.hero-section .hero-details .title {
+    font-size: 50px;
+    color: darkcyan;
+    font-family: sans-serif;
+}
+
+.hero-section .hero-details .description {
+    margin-top: 8px;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semibold);
+}
+
+.hero-section .hero-details .buttons {
+    padding: 6px 16px;
+    border: 2px solid transparent;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-m);
+    font-weight: var(--font-weight-medium);
+    transition: 0.3s ease;
+    display: flex;
+    gap: 10px;
+    width: auto;
+    max-width: 180px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0;
+}
+
+.hero-section .hero-details .buttons:hover {
+    color: var(--white-color);
+    border-color: var(--white-color);
+    background: transparent;
+}
+
+/* MAP STYLING */
+
+.map-section {
+    padding: 120px 0;
+    background: #f9f9f9;
+    overflow-y: auto; 
+    height: auto;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding: 10px;
+    width: calc(40px * 5 + 10px * 4); 
+}
+
+.grave {
+    background-color: gray;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+.available {
+    background-color: #92d6a4;
+}
+
+.taken {
+    background-color: #f24a4a;
+}
+
+.grave:hover::after {
+    content: attr(data-name);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+/* List Section */
+.list-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;  /* Center text inside the section */
+}
+
+/* Heading */
+.list-section h2 {
+    color: #9b2525;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph */
+.list-section p {
+    color: #2a68a1;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Search Input */
+#searchInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Centering Table */
+#deceasedTable {
+    margin: 0 auto;  /* Centers the table horizontally */
+    width: 100%;      /* Adjust width as needed */
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Table Header */
+#deceasedTable thead {
+    background-color: #007bff;
+    color: white;
+}
+
+#deceasedTable th {
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Table Rows */
+#deceasedTable td {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+}
+
+#deceasedTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Table Row Hover */
+#deceasedTable tr:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* FOOTER STYLING */
+
+.footer {
+    background-color: palevioletred; /* Ensures the background is black */
+    color: white; /* Text color */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    width: 100%;
+    position: relative; /* Change to 'fixed' if you want it always at the bottom */
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a {
+    color: var(--secondary-color2);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer p {
+    color: var(--secondary-color2);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: var(--secondary-color2);
+    font-size: 18px;
+    margin: 0 8px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+
+
+/* Responsive media query code for max width 900px */
+
+@media screen and (max-width: 900px) {
+    :root {
+        --font-size-m: 1rem;
+        --font-size-l: 1.3rem;
+        --font-size-xl: 1.5rem;
+        --font-size-xxl: 1.8rem;
+    }
+
+    .navbar :where(#menu-close-button, #menu-open-button) {
+        display: block;
+        font-size: var(--font-size-l);
+    }
+
+    .navbar #menu-close-button {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar #menu-open-button {
+        color: var(--white-color);
+    }
+
+    .navbar .nav-menu {
+        display: block;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        background: var(--white-color);
+        transition: left 0.2s ease;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+    }
+
+    .navbar .nav-menu .nav-link {
+        color: var(--dark-color);
+        display: block;
+        margin-top: 17px;
+        font-size: var(--font-size-l);
+    }
+
+    /* Map Section */
+.map-section {
+    padding: 120px 0;
+    background: #f9f9f9;
+    overflow-y: auto; 
+    height: auto;
+    text-align: center;  /* Ensures the map section content is centered */
+}
+
+/* Grid Layout for Graves */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px); 
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Grave Box */
+.grave {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Available and Taken Graves */
+.available {
+    background-color: green;
+}
+
+.taken {
+    background-color: red;
+}
+
+/* Hover Effect */
+.grave:hover::after {
+    content: attr(data-name);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* List Section */
+.list-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;  /* Center text inside the section */
+}
+
+/* Heading */
+.list-section h2 {
+    color: #9b2525;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph */
+.list-section p {
+    color: #2a68a1;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Search Input */
+#searchInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Table Styling */
+#deceasedTable {
+    margin: 0 auto;  /* Centers the table horizontally */
+    width: 100%;      /* Adjust width as needed */
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* Table Header */
+#deceasedTable thead {
+    background-color: #007bff;
+    color: white;
+}
+
+#deceasedTable th {
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Table Rows */
+#deceasedTable td {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+}
+
+#deceasedTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Table Row Hover */
+#deceasedTable tr:hover {
+    background-color: #e0e0e0;
+}
+
+
+    
+}
+
+
+
+
+
+
